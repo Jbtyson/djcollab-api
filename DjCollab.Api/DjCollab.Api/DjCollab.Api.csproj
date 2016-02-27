@@ -235,6 +235,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartyController.cs" />
+    <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -317,6 +319,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DjCollab.Party\DjCollab.Party.csproj">
+      <Project>{23a52366-112b-4839-a878-7e46493df972}</Project>
+      <Name>DjCollab.Party</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DjCollab.Song\DjCollab.Song.csproj">
+      <Project>{d19ff8bc-fbb9-4b41-8f61-9b954df3881d}</Project>
+      <Name>DjCollab.Song</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
