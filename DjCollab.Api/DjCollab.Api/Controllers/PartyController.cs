@@ -32,23 +32,13 @@ namespace DjCollab.Api.Controllers
         }
 
         [HttpPut]
-        [Route("{userId}/create")]
+        [Route("create/{userId}")]
         [ResponseType(typeof (Party.Model.Party))]
         public IHttpActionResult CreateParty(string userId, Party.Model.Party party)
         {
             var createdParty = partyService.CreateParty(int.Parse(userId), party);
 
             return Ok(createdParty);
-        }
-
-        [HttpGet]
-        [Route("{userId}/my")]
-        [ResponseType(typeof(IList<Party.Model.Party>))]
-        public IHttpActionResult GetPartiesHostedByUser(string userId)
-        {
-            var parties = partyService.GetPartiesHostedByUser(int.Parse(userId));
-
-            return Ok(parties);
         }
     }
 }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Party.Tests", "DjCollab.Party.Tests\DjCollab.Party.Tests.csproj", "{5BDB49A4-CAB8-4533-BDE0-CD982E71E597}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Host", "DjCollab.Host\DjCollab.Host.csproj", "{BE32B07A-9D78-49BF-992D-FD8D05276CAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5BDB49A4-CAB8-4533-BDE0-CD982E71E597}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BDB49A4-CAB8-4533-BDE0-CD982E71E597}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BDB49A4-CAB8-4533-BDE0-CD982E71E597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE32B07A-9D78-49BF-992D-FD8D05276CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE32B07A-9D78-49BF-992D-FD8D05276CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE32B07A-9D78-49BF-992D-FD8D05276CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE32B07A-9D78-49BF-992D-FD8D05276CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
