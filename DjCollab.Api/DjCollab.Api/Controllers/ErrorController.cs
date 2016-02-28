@@ -11,7 +11,7 @@ namespace DjCollab.Api.Controllers
     [RoutePrefix("api/v1/error")]
     public class ErrorController : ApiController
     {
-        public static IList<string> Errors = new List<string>();
+        public static IList<Exception> Errors = new List<Exception>();
 
         public ErrorController()
         {
