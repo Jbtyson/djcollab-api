@@ -244,6 +244,7 @@
     <Compile Include="Controllers\HostController.cs" />
     <Compile Include="Controllers\HostPartyController.cs" />
     <Compile Include="Controllers\PartyController.cs" />
+    <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -339,6 +340,10 @@
     <ProjectReference Include="..\DjCollab.Party\DjCollab.Party.csproj">
       <Project>{23a52366-112b-4839-a878-7e46493df972}</Project>
       <Name>DjCollab.Party</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DjCollab.Song\DjCollab.Song.csproj">
+      <Project>{d19ff8bc-fbb9-4b41-8f61-9b954df3881d}</Project>
+      <Name>DjCollab.Song</Name>
     </ProjectReference>
     <ProjectReference Include="..\DjCollab.User\DjCollab.User.csproj">
       <Project>{44ec791b-1924-449d-a832-c8d7d6cc0987}</Project>

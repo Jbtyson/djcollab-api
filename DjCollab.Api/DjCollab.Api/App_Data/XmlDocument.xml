@@ -577,6 +577,19 @@
             <param name="name">Name of the party.</param>
             <returns>Created party object.</returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.SongController.GetCount">
+            <summary>
+            Gets all of the song counts available.
+            </summary>
+            <returns>List of SongCountInfo</returns>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.SongController.GetCount(System.String)">
+            <summary>
+            Gets top 'x' song counts.
+            </summary>
+            <param name="max">Maximum song counts to return</param>
+            <returns>List of top 'x' SongCountInfo's</returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.UserController.GetAllUsers">
             <summary>
             Gets a list of all users.

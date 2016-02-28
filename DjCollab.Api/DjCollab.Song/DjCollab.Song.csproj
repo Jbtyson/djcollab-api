@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Data\FakeSongDb.cs" />
     <Compile Include="ISongService.cs" />
+    <Compile Include="Model\SongCountInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SongService.cs" />
   </ItemGroup>

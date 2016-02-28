@@ -18,7 +18,14 @@ namespace DjCollab.Party.Data
 
         public static Model.Party GetParty(int partyId)
         {
-            return parties.Where(p => p.Id == partyId).ToList()[0];
+            foreach (var p in parties)
+            {
+                if (p.Id == partyId)
+                {
+                    return p;
+                }
+            }
+            throw new KeyNotFoundException(); ;
         }
 
         public static void UpdatePartyHost(int partyId, int hostId)
