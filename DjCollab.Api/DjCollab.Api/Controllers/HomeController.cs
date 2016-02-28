@@ -10,8 +10,7 @@ namespace DjCollab.Api.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
+            ViewBag.Title = "DJCollab";
             return View();
         }
     }
