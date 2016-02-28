@@ -34,7 +34,7 @@ namespace DjCollab.Api.Controllers
             }
             catch (Exception e)
             {
-                ErrorController.Errors.Add(e.Message);
+                ErrorController.Errors.Add(e);
             }
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }

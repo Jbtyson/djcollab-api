@@ -52,9 +52,14 @@ namespace DjCollab.Api.Controllers
                 var party = partyService.AddSongToParty(int.Parse(partyId), songId);
                 return Ok(party);
             }
+            catch (FormatException e)
+            {
+                ErrorController.Errors.Add(e);
+                return InternalServerError(e);
+            }
             catch (Exception e)
             {
-                ErrorController.Errors.Add(e.Message);
+                ErrorController.Errors.Add(e);
                 return InternalServerError(e);
             }
 
