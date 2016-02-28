@@ -10,6 +10,18 @@ namespace DjCollab.Host
         private static readonly Dictionary<int, HostWebSocketHandler> hostWebSocketHandlers = new Dictionary<int, HostWebSocketHandler>();
         private static int idCount = 0;
 
+        public HostService()
+        {
+        }
+
+        public HostService(IDictionary<int, HostWebSocketHandler> hostWebSocketHandlers)
+        {
+            foreach (KeyValuePair<int, HostWebSocketHandler> kvp in hostWebSocketHandlers)
+            {
+                HostService.hostWebSocketHandlers[kvp.Key] = kvp.Value;
+            }
+        }
+
         public IList<int> GetHosts()
         {
             return hostWebSocketHandlers.Keys.ToList();
@@ -39,7 +51,7 @@ namespace DjCollab.Host
 
         public HostWebSocketHandler GetHostByPartyId(int partyId)
         {
-            return hostWebSocketHandlers.Values.Where(h => h.PartyId == partyId).ToList()[0];
+            return hostWebSocketHandlers.Values.Where(h => h.PartyId == partyId).ElementAt(0);
         }
     }
 }

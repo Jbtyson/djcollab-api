@@ -15,6 +15,7 @@ namespace DjCollab.Api.Controllers
     public class HostController : ApiController
     {
         private readonly IHostService hostService;
+        private readonly IPartyService partyService;
 
         public HostController()
         {
@@ -32,9 +33,10 @@ namespace DjCollab.Api.Controllers
         {
             try
             {
-                HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(int.Parse(partyId)));
-                var handler = hostService.GetHostByPartyId(int.Parse(partyId));
-                new PartyService().GetParty(handler.PartyId).HostId = handler.HostId;
+                var id = int.Parse(partyId);
+                HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(id));
+                var handler = hostService.GetHostByPartyId(id);
+                partyService.GetParty(id).HostId = handler.HostId;
             }
             catch (FormatException e)
             {
