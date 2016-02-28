@@ -16,12 +16,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img class="logo" src="@Url.Content("~/Content/Images/Spotify_Icon_RGB_Green.png")" alt="Spotify Icon"/>
+                @Html.ActionLink("DJCollab", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new {area = ""}, null)</li>
+                    <li>@Html.ActionLink("Host", "Index", "Home", new {area = ""}, null)</li>
+                    <li>@Html.ActionLink("Join", "Index", "Home", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
