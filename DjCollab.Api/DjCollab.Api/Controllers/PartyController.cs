@@ -44,9 +44,9 @@ namespace DjCollab.Api.Controllers
         [HttpPut]
         [Route("{partyId}/{songId}")]
         [ResponseType(typeof (Party.Model.Party))]
-        public IHttpActionResult AddSongToParty(string partyId, string senderId, string songId)
+        public IHttpActionResult AddSongToParty(string partyId, string songId)
         {
-            var party = partyService.AddSongToParty(int.Parse(partyId), int.Parse(senderId), int.Parse(songId));
+            var party = partyService.AddSongToParty(int.Parse(partyId), songId);
 
             return Ok(party);
         }

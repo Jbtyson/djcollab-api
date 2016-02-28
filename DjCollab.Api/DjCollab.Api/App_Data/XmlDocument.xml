@@ -481,7 +481,7 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:DjCollab.Api.Controllers.HostController.Get">
+        <member name="M:DjCollab.Api.Controllers.HostController.Host">
             <summary>
             Establishes a websocket connection between a host and the server.
             </summary>
@@ -493,7 +493,7 @@
             </summary>
             <returns>List of all active parties.</returns>
         </member>
-        <member name="M:DjCollab.Api.Controllers.PartyController.AddSongToParty(System.String,System.String,System.String)">
+        <member name="M:DjCollab.Api.Controllers.PartyController.AddSongToParty(System.String,System.String)">
             <summary>
             Adds a song to a party's playlist.
             </summary>

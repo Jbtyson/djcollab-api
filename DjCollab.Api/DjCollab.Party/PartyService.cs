@@ -18,11 +18,11 @@ namespace DjCollab.Party
             this.hostService = hostService;
         }
 
-        public Model.Party AddSongToParty(int senderId, int partyId, int songId)
+        public Model.Party AddSongToParty(int partyId, string songId)
         {
             var party = FakePartyDb.GetParty(partyId);
             party.SongList.Add(songId);
-            hostService.SendMessage(party.HostId, senderId, $"add:{songId}");
+            hostService.SendMessage(party.HostId, $"add:{songId}");
             return party;
         }
 

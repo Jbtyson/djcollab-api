@@ -13,7 +13,7 @@ namespace DjCollab.Host
         {
         }
 
-        public void SendMessage(int hostId, int senderId, string message)
+        public void SendMessage(int hostId, string message)
         {
             hostWebSocketHandlers[hostId].Send(message);
         }

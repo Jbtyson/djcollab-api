@@ -7,6 +7,6 @@ namespace DjCollab.Party
         Model.Party GetParty(int partyId);
         IList<Model.Party> GetAllParties();
         Model.Party CreateParty(string name);
-        Model.Party AddSongToParty(int senderId, int partyId, int songId);
+        Model.Party AddSongToParty(int partyId, string songId);
     }
 }

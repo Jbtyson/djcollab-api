@@ -3,7 +3,7 @@
     public interface IHostService
     {
         void CreateHostWebSocketHandler(int userId);
-        void SendMessage(int hostId, int senderId, string message);
+        void SendMessage(int hostId, string message);
         void AddHost(HostWebSocketHandler hostWebSocketHandler);
     }
 }

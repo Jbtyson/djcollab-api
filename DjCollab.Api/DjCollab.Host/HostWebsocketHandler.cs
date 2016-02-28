@@ -19,7 +19,7 @@ namespace DjCollab.Host
         public override void OnMessage(string message)
         {
             var param = message.Split('/');
-            hostService.SendMessage(int.Parse(param[0]), int.Parse(param[1]), param[2]);
+            //hostService.SendMessage(int.Parse(param[0]), int.Parse(param[1]), param[2]);
         }
     }
 }

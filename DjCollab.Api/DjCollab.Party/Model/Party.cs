@@ -9,6 +9,6 @@ namespace DjCollab.Party.Model
         public int Id { get; set; }
         public int HostId { get; set; }
         public string Name { get; set; }
-        public IList<int> SongList { get; set; }
+        public IList<string> SongList { get; set; }
     }
 }

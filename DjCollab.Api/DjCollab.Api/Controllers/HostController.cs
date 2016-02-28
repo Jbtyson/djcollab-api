@@ -26,7 +26,7 @@ namespace DjCollab.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public HttpResponseMessage Get()
+        public HttpResponseMessage Host()
         {
             var handler = new HostWebSocketHandler();
             HttpContext.Current.AcceptWebSocketRequest(handler);
