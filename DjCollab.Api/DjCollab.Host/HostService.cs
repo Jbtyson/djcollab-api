@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Web.WebSockets;
 
@@ -26,14 +27,19 @@ namespace DjCollab.Host
         public void AddHost(HostWebSocketHandler hostWebSocketHandler)
         {
             var id = idCount++;
-            hostWebSocketHandler.Id = id;
+            hostWebSocketHandler.HostId = id;
             hostWebSocketHandlers[id] = hostWebSocketHandler;
-            hostWebSocketHandler.Send($"id:{id}");
+            hostWebSocketHandler.Send($"add:{id}");
         }
 
         public void OnDisconnect(int id)
         {
             hostWebSocketHandlers.Remove(id);
+        }
+
+        public HostWebSocketHandler GetHostByPartyId(int partyId)
+        {
+            return hostWebSocketHandlers.Values.Where(h => h.PartyId == partyId).ToList()[0];
         }
     }
 }

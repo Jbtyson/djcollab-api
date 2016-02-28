@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Http;
 using Microsoft.Web.WebSockets;
 using DjCollab.Host;
+using DjCollab.Party;
 
 namespace DjCollab.Api.Controllers
 {
@@ -25,12 +26,18 @@ namespace DjCollab.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("")]
-        public HttpResponseMessage Host()
+        [Route("{partyId}")]
+        public HttpResponseMessage Host(string partyId)
         {
             try
             {
-                HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler());
+                HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(int.Parse(partyId)));
+                var handler = hostService.GetHostByPartyId(int.Parse(partyId));
+                new PartyService().GetParty(handler.PartyId).HostId = handler.HostId;
+            }
+            catch (FormatException e)
+            {
+                ErrorController.Errors.Add(e);
             }
             catch (Exception e)
             {

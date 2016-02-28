@@ -7,10 +7,12 @@ namespace DjCollab.Host
     public class HostWebSocketHandler : WebSocketHandler
     {
         private static IHostService hostService = new HostService();
-        public int Id { get; set; }
+        public int HostId { get; set; }
+        public int PartyId { get; set; }
 
-        public HostWebSocketHandler()
+        public HostWebSocketHandler(int partyId)
         {
+            PartyId = partyId;
         }
 
         public override void OnOpen()
@@ -20,14 +22,12 @@ namespace DjCollab.Host
 
         public override void OnMessage(string message)
         {
-            var param = message.Split('/');
-            //hostService.SendMessage(int.Parse(param[0]), int.Parse(param[1]), param[2]);
         }
 
         public override void OnClose()
         {
             base.OnClose();
-            hostService.OnDisconnect(Id);
+            hostService.OnDisconnect(HostId);
         }
     }
 }
