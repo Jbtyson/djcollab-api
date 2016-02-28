@@ -51,6 +51,10 @@ button {
     margin: 15px auto 15px auto;
 }
 
+.table {
+    background-color: transparent;
+}
+
 .table-hover > tbody > tr:hover > td {
     background-color: #222222;
     background-color: rgba(255, 255, 255, 0.1);
