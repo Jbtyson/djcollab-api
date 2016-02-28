@@ -54,7 +54,8 @@ namespace DjCollab.Party.Data
             {
                 if (p.Id == partyId)
                 {
-                    ((List<string>)p.SongList).RemoveAll(s => s.Equals(songId));
+                    p.SongList.RemoveAt(((List<string>)p.SongList)
+                        .FindIndex(s => s.Equals(songId)));
                     return p;
                 }
             }

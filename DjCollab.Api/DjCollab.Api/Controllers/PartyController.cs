@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DjCollab.Party;
+using DjCollab.Song;
 using Microsoft.Owin.Security.Provider;
 
 namespace DjCollab.Api.Controllers
@@ -12,10 +13,12 @@ namespace DjCollab.Api.Controllers
     public class PartyController : ApiController
     {
         private IPartyService partyService;
+        private ISongService songService;
 
         public PartyController()
         {
             partyService = new PartyService();
+            songService = new SongService();
         }
 
         public PartyController(IPartyService partyService)
@@ -62,6 +65,7 @@ namespace DjCollab.Api.Controllers
             try
             {
                 var party = partyService.AddSongToParty(int.Parse(partyId), songId);
+                songService.AddSongCount(songId);
                 return Ok(party);
             }
             catch (FormatException e)
