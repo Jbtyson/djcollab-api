@@ -511,6 +511,14 @@
             <param name="partyId">Id of the party to begin hosting.</param>
             <returns></returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.HostController.Register(System.String,System.String)">
+            <summary>
+            Registers a hostId to a partyId
+            </summary>
+            <param name="hostId">Id of the host.</param>
+            <param name="partyId">Id of the party.</param>
+            <returns></returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.HostController.GetHosts">
             <summary>
             Returns a list of hosts.

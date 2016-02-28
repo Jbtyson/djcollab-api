@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Net;
 using System.Net.Http;
 using System.Web;
@@ -49,11 +50,18 @@ namespace DjCollab.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }
 
+        /// <summary>
+        /// Registers a hostId to a partyId
+        /// </summary>
+        /// <param name="hostId">Id of the host.</param>
+        /// <param name="partyId">Id of the party.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{hostId}/{partyId}")]
         public IHttpActionResult Register(string hostId, string partyId)
         {
             hostService.Register(int.Parse(hostId), int.Parse(partyId));
+            partyService.GetParty(int.Parse(partyId)).HostId = int.Parse(hostId);
             return Ok();
         }
 
