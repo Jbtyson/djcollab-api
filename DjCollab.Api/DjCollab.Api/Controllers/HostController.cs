@@ -28,9 +28,7 @@ namespace DjCollab.Api.Controllers
         [Route("")]
         public HttpResponseMessage Host()
         {
-            var handler = new HostWebSocketHandler();
-            HttpContext.Current.AcceptWebSocketRequest(handler);
-            hostService.AddHost(handler);
+            HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler());
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }
 
