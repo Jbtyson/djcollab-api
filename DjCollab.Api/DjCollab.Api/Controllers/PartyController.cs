@@ -55,7 +55,7 @@ namespace DjCollab.Api.Controllers
             }
             catch (Exception e)
             {
-                return InternalServerError(e);
+                return Ok(e.Message);
             }
         }
 
