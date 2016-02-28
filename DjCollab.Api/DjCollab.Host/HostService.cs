@@ -51,7 +51,12 @@ namespace DjCollab.Host
 
         public HostWebSocketHandler GetHostByPartyId(int partyId)
         {
-            return hostWebSocketHandlers.Values.Where(h => h.PartyId == partyId).ElementAt(0);
+            var results = hostWebSocketHandlers.Values.Where(h => h.PartyId == partyId);
+            if (results.Any())
+            {
+                return results.First();
+            }
+            throw new KeyNotFoundException($"No party found for id: {partyId}");
         }
     }
 }
