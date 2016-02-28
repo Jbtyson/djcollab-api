@@ -21,6 +21,15 @@ namespace DjCollab.Party.Data
             return parties.Where(p => p.Id == partyId).ToList()[0];
         }
 
+        public static void UpdatePartyHost(int partyId, int hostId)
+        {
+            foreach (var p in parties)
+            {
+                if (p.Id == partyId)
+                    p.HostId = hostId;
+            }
+        }
+
         public static IList<Model.Party> GetAllParties()
         {
             return parties;

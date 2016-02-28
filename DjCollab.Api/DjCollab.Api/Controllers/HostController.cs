@@ -9,6 +9,7 @@ using System.Web.Http;
 using Microsoft.Web.WebSockets;
 using DjCollab.Host;
 using DjCollab.Party;
+using DjCollab.Party.Data;
 
 namespace DjCollab.Api.Controllers
 {
@@ -61,7 +62,7 @@ namespace DjCollab.Api.Controllers
         public IHttpActionResult Register(string hostId, string partyId)
         {
             hostService.Register(int.Parse(hostId), int.Parse(partyId));
-            partyService.GetParty(int.Parse(partyId)).HostId = int.Parse(hostId);
+            FakePartyDb.UpdatePartyHost(int.Parse(hostId), int.Parse(partyId));
             return Ok();
         }
 
