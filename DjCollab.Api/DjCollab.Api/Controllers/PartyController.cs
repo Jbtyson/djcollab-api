@@ -38,10 +38,9 @@ namespace DjCollab.Api.Controllers
         /// Adds a song to a party's playlist.
         /// </summary>
         /// <param name="partyId">Id of the party to add the song to.</param>
-        /// <param name="senderId">Id of the user attempting to add the song.</param>
         /// <param name="songId">Id of the song the user is trying to add.</param>
         /// <returns>Updated party object.</returns>
-        [HttpPut]
+        [HttpGet]
         [Route("{partyId}/{songId}")]
         [ResponseType(typeof (Party.Model.Party))]
         public IHttpActionResult AddSongToParty(string partyId, string songId)

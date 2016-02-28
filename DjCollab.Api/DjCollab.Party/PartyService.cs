@@ -40,6 +40,7 @@ namespace DjCollab.Party
         {
             var party = new Model.Party();
             party.Name = name;
+            party.SongList = new List<string>();
             return FakePartyDb.CreateParty(party);
         }
     }
