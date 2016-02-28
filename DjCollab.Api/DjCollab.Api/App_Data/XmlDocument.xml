@@ -493,6 +493,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.HostController.GetHosts">
+            <summary>
+            Returns a list of hosts.
+            </summary>
+            <returns>A list of hosts.</returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.PartyController.GetParties">
             <summary>
             Get a list of all active parties.

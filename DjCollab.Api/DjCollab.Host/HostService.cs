@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Web.WebSockets;
 
 namespace DjCollab.Host
@@ -8,6 +9,11 @@ namespace DjCollab.Host
         private static readonly WebSocketCollection webSocketCollection = new WebSocketCollection();
         private static readonly Dictionary<int, HostWebSocketHandler> hostWebSocketHandlers = new Dictionary<int, HostWebSocketHandler>();
         private static int idCount = 0;
+
+        public IList<int> GetHosts()
+        {
+            return hostWebSocketHandlers.Keys.ToList();
+        }
 
         public void CreateHostWebSocketHandler(int userId)
         {

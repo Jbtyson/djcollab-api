@@ -33,5 +33,16 @@ namespace DjCollab.Api.Controllers
             hostService.AddHost(handler);
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }
+
+        /// <summary>
+        /// Returns a list of hosts.
+        /// </summary>
+        /// <returns>A list of hosts.</returns>
+        [HttpGet]
+        [Route("all")]
+        public IHttpActionResult GetHosts()
+        {
+            return Ok(hostService.GetHosts());
+        }
     }
 }
