@@ -28,5 +28,18 @@ namespace DjCollab.Api.Controllers
         {
             return Ok(Errors);
         }
+
+        /// <summary>
+        /// Clears the error log.
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("")]
+        [ResponseType(typeof (void))]
+        public IHttpActionResult Clear()
+        {
+            Errors.Clear();
+            return Ok();
+        }
     }
 }

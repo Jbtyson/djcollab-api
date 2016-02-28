@@ -41,9 +41,12 @@ namespace DjCollab.Party
 
         public Model.Party CreateParty(string name)
         {
-            var party = new Model.Party();
-            party.Name = name;
-            party.SongList = new List<string>();
+            var party = new Model.Party()
+            {
+                Name = name,
+                HostId = -1,
+                SongList = new List<string>()
+            };
             return FakePartyDb.CreateParty(party);
         }
     }

@@ -487,6 +487,12 @@
             </summary>
             <returns>List of errors since last server restart.</returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.ErrorController.Clear">
+            <summary>
+            Clears the error log.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:DjCollab.Api.Controllers.HomeController">
             <summary>
             View Controller for Home
