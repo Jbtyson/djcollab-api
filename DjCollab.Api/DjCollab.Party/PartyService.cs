@@ -22,7 +22,14 @@ namespace DjCollab.Party
         {
             var party = FakePartyDb.GetParty(partyId);
             party.SongList.Add(songId);
-            hostService.SendMessage(party.HostId, $"add:{songId}");
+            try
+            {
+                hostService.SendMessage(party.HostId, $"add:{songId}");
+            }
+            catch (KeyNotFoundException e)
+            {
+            }
+
             return party;
         }
 

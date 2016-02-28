@@ -47,16 +47,9 @@ namespace DjCollab.Api.Controllers
         [ResponseType(typeof(Party.Model.Party))]
         public IHttpActionResult AddSongToParty(string partyId, string songId)
         {
-            try
-            {
-                var party = partyService.AddSongToParty(int.Parse(partyId), songId);
+            var party = partyService.AddSongToParty(int.Parse(partyId), songId);
 
-                return Ok(party);
-            }
-            catch (Exception e)
-            {
-                return Ok(e.Message);
-            }
+            return Ok(party);
         }
 
         /// <summary>
