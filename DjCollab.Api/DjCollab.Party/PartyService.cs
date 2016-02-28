@@ -36,9 +36,10 @@ namespace DjCollab.Party
             return FakePartyDb.GetAllParties();
         } 
 
-        public Model.Party CreateParty(int userId, Model.Party party)
+        public Model.Party CreateParty(string name)
         {
-            party.HostId = userId;
+            var party = new Model.Party();
+            party.Name = name;
             return FakePartyDb.CreateParty(party);
         }
     }

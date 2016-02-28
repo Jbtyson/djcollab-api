@@ -54,15 +54,14 @@ namespace DjCollab.Api.Controllers
         /// <summary>
         /// Creates a party.
         /// </summary>
-        /// <param name="userId">User attempting to host a party.</param>
-        /// <param name="party">Party creation information.</param>
+        /// <param name="name">Name of the party.</param>
         /// <returns>Created party object.</returns>
         [HttpPut]
-        [Route("create/{userId}")]
+        [Route("create/{name}")]
         [ResponseType(typeof (Party.Model.Party))]
-        public IHttpActionResult CreateParty(string userId, Party.Model.Party party)
+        public IHttpActionResult CreateParty(string name)
         {
-            var createdParty = partyService.CreateParty(int.Parse(userId), party);
+            var createdParty = partyService.CreateParty(name);
 
             return Ok(createdParty);
         }

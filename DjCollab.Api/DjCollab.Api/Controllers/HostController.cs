@@ -23,7 +23,6 @@ namespace DjCollab.Api.Controllers
         /// <summary>
         /// Establishes a websocket connection between a host and the server.
         /// </summary>
-        /// <param name="userId">Id of the user attempting to establish the connection.</param>
         /// <returns></returns>
         [HttpGet]
         [Route("")]
