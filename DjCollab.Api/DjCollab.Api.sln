@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Api", "DjCollab.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Party", "DjCollab.Party\DjCollab.Party.csproj", "{23A52366-112B-4839-A878-7E46493DF972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Song", "DjCollab.Song\DjCollab.Song.csproj", "{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8B598C23-61F7-4427-A7D2-5489040618FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Party.Tests", "DjCollab.Party.Tests\DjCollab.Party.Tests.csproj", "{5BDB49A4-CAB8-4533-BDE0-CD982E71E597}"
@@ -29,10 +27,6 @@ Global
 		{23A52366-112B-4839-A878-7E46493DF972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23A52366-112B-4839-A878-7E46493DF972}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23A52366-112B-4839-A878-7E46493DF972}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B598C23-61F7-4427-A7D2-5489040618FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B598C23-61F7-4427-A7D2-5489040618FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B598C23-61F7-4427-A7D2-5489040618FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
