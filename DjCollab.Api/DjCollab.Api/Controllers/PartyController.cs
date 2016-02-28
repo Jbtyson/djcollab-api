@@ -24,6 +24,18 @@ namespace DjCollab.Api.Controllers
         }
 
         /// <summary>
+        /// Gets a party based on a specified Id.
+        /// </summary>
+        /// <param name="partyId">Id of the party to retrieve.</param>
+        [HttpGet]
+        [Route("{partyId}")]
+        [ResponseType(typeof (Party.Model.Party))]
+        public void GetParty(string partyId)
+        {
+            partyService.GetParty(int.Parse(partyId));
+        }
+
+        /// <summary>
         /// Get a list of all active parties.
         /// </summary>
         /// <returns>List of all active parties.</returns>

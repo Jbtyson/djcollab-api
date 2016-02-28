@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Party.Tests", "DjC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Host.Tests", "DjCollab.Host.Tests\DjCollab.Host.Tests.csproj", "{F33EC76B-8F41-4A2B-A815-F9D0C652BCA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjCollab.Song", "DjCollab.Song\DjCollab.Song.csproj", "{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F33EC76B-8F41-4A2B-A815-F9D0C652BCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33EC76B-8F41-4A2B-A815-F9D0C652BCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33EC76B-8F41-4A2B-A815-F9D0C652BCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D19FF8BC-FBB9-4B41-8F61-9B954DF3881D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

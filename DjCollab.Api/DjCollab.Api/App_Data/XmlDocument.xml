@@ -542,6 +542,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.PartyController.GetParty(System.String)">
+            <summary>
+            Gets a party based on a specified Id.
+            </summary>
+            <param name="partyId">Id of the party to retrieve.</param>
+        </member>
         <member name="M:DjCollab.Api.Controllers.PartyController.GetParties">
             <summary>
             Get a list of all active parties.
