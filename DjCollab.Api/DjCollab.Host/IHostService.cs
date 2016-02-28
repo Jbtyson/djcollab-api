@@ -9,6 +9,7 @@ namespace DjCollab.Host
         void CreateHostWebSocketHandler(int userId);
         void SendMessage(int hostId, string message);
         void AddHost(HostWebSocketHandler hostWebSocketHandler);
+        void Register(int hostId, int partyId);
         void OnDisconnect(int id);
     }
 }

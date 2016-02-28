@@ -35,8 +35,8 @@ namespace DjCollab.Api.Controllers
             {
                 var id = int.Parse(partyId);
                 HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(id));
-                var handler = hostService.GetHostByPartyId(id);
-                partyService.GetParty(id).HostId = handler.HostId;
+                //var handler = hostService.GetHostByPartyId(id);
+                //partyService.GetParty(id).HostId = handler.HostId;
             }
             catch (FormatException e)
             {
@@ -47,6 +47,14 @@ namespace DjCollab.Api.Controllers
                 ErrorController.Errors.Add(e);
             }
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
+        }
+
+        [HttpPost]
+        [Route("{hostId}/{partyId}")]
+        public IHttpActionResult Register(string hostId, string partyId)
+        {
+            hostService.Register(int.Parse(hostId), int.Parse(partyId));
+            return Ok();
         }
 
         /// <summary>

@@ -44,6 +44,11 @@ namespace DjCollab.Host
             hostWebSocketHandler.Send($"id:{id}");
         }
 
+        public void Register(int hostId, int partyId)
+        {
+            hostWebSocketHandlers[hostId].PartyId = partyId;
+        }
+
         public void OnDisconnect(int id)
         {
             hostWebSocketHandlers.Remove(id);
