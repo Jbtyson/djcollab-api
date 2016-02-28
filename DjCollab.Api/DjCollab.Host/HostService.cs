@@ -7,6 +7,7 @@ namespace DjCollab.Host
     {
         private static readonly WebSocketCollection webSocketCollection = new WebSocketCollection();
         private static readonly Dictionary<int, HostWebSocketHandler> hostWebSocketHandlers = new Dictionary<int, HostWebSocketHandler>();
+        private static int idCount = 0;
 
         public void CreateHostWebSocketHandler(int userId)
         {
@@ -17,10 +18,10 @@ namespace DjCollab.Host
             hostWebSocketHandlers[hostId].Send(message);
         }
 
-        public void AddHost(int hostId, HostWebSocketHandler hostWebSocketHandler)
+        public void AddHost(HostWebSocketHandler hostWebSocketHandler)
         {
             webSocketCollection.Add(hostWebSocketHandler);
-            hostWebSocketHandlers[hostId] = hostWebSocketHandler;
+            hostWebSocketHandlers[idCount++] = hostWebSocketHandler;
         }
     }
 }

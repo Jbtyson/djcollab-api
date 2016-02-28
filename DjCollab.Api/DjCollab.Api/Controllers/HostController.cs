@@ -26,10 +26,10 @@ namespace DjCollab.Api.Controllers
         /// <param name="userId">Id of the user attempting to establish the connection.</param>
         /// <returns></returns>
         [HttpGet]
-        [Route("{userId}")]
-        public IHttpActionResult Host(string userId)
+        [Route("")]
+        public IHttpActionResult Host()
         {
-            HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(int.Parse(userId)));
+            HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler());
             return Ok();
         }
     }

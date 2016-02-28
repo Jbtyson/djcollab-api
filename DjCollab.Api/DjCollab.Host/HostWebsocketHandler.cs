@@ -6,16 +6,14 @@ namespace DjCollab.Host
     public class HostWebSocketHandler : WebSocketHandler
     {
         private static IHostService hostService = new HostService();
-        private int userId;
 
-        public HostWebSocketHandler(int userId)
+        public HostWebSocketHandler()
         {
-            this.userId = userId;
         }
 
         public override void OnOpen()
         {
-            hostService.AddHost(userId, this);
+            hostService.AddHost(this);
         }
 
         public override void OnMessage(string message)
