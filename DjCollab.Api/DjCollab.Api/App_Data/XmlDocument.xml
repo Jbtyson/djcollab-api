@@ -487,6 +487,17 @@
             </summary>
             <returns>List of errors since last server restart.</returns>
         </member>
+        <member name="T:DjCollab.Api.Controllers.HomeController">
+            <summary>
+            View Controller for Home
+            </summary>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.HomeController.Index">
+            <summary>
+            Returns view for the index
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.HostController.Host(System.String)">
             <summary>
             Establishes a websocket connection between a host and the server.
@@ -498,6 +509,23 @@
             Returns a list of hosts.
             </summary>
             <returns>A list of hosts.</returns>
+        </member>
+        <member name="T:DjCollab.Api.Controllers.HostPartyController">
+            <summary>
+            View Controller for Hosting a Party
+            </summary>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.HostPartyController.Callback">
+            <summary>
+            Returns the callback after login
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.HostPartyController.Index">
+            <summary>
+            Returns the main host a party view
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:DjCollab.Api.Controllers.PartyController.GetParties">
             <summary>

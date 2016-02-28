@@ -242,6 +242,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostController.cs" />
+    <Compile Include="Controllers\HostPartyController.cs" />
     <Compile Include="Controllers\PartyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -318,6 +319,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\HostParty\Index.cshtml" />
+    <Content Include="Views\HostParty\Callback.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
