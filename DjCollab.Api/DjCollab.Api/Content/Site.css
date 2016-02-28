@@ -15,3 +15,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Logo Image */
+.logo {
+    display: inline-block;
+    float: left;
+    height: 45px;
+    margin: 3px 15px 0 0;
+}
