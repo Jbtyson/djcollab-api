@@ -1,12 +1,121 @@
 ﻿<div class="row">
     <div class="col-md-12">
         <h2>Host a Party</h2>
-        <p>
-            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a>
-        </p>
-    </div>
+        <form id="nameForm">
+            <label>Party Name:</label>
+            <input type="text" id="partyname"/>
+            <br/>
+            <button type="button" class="btn btn-success" id="btn-party">Create Party</button>
+        </form>
+        <span style="display: none;" id="creatingNotification">Creating Party...</span>
+        <div class="table-responsive" id="queue">
+            <h2>Your Queue</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                </tr>
+                </thead>
+                <tbody id="queueList">
+                <tr>
+                    <td>My Song</td>
+                    <td>Alex Todd</td>
+                    <td>My Album</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 </div>
+@section scripts {
+    <script>
+        //Host a Party
+        $(document).ready(function() {
+            var partyButton = document.getElementById('btn-party'),
+                partyForm = document.getElementById('nameForm'),
+                partyName = document.getElementById('partyname'),
+                creatingNotification = document.getElementById('creatingNotification'),
+                queue = document.getElementById('queue'),
+                queueList = document.getElementById('queueList');
+
+            partyButton.addEventListener('click', function() {
+                var name = partyName.value;
+                $.ajax({
+                    url: 'http://djcollab.com/api/v1/party/create/' + name,
+                    type: 'PUT',
+                    success: function(result) {
+                        partyForm.style.display = 'none';
+                        creatingNotification.style.display = 'block';
+                        console.log("Created Party");
+                        console.log(result);
+                        var partyId = result.Id;
+                        var hostId = result.HostId;
+                        var officialName = result.Name;
+                        var songList = result.SongList;
+                        var uri = 'ws://djcollab.com/api/v1/host/' + partyId;
+                        websocket = new WebSocket(uri);
+                        websocket.onopen = function() {
+                            console.log("Connected to Websocket");
+                            creatingNotification.innerHTML = 'Party "' + officialName + '" was successfully created!';
+                        };
+                        websocket.onerror = function(event) {
+                            partyForm.style.display = 'none';
+                            creatingNotification.style.display = 'block';
+                            console.log("Could not connect to websocket.")
+                            creatingNotification.innerHTML = 'Could not create your party. Please refresh the page and try again.';
+                        };
+                        websocket.onmessage = function(event) {
+                            var wsmsg = event.data.split(':');
+                            if (wsmsg[0] === "add") {
+                                $.ajax({
+                                    url: 'https://api.spotify.com/v1/tracks/' + wsmsg[1],
+                                    type: 'GET',
+                                    success: function(result) {
+                                        console.log("Recieved track information.");
+                                        var trackName = result.name;
+                                        var trackArtist = result.artists[0].name;
+                                        var trackAlbum = result.album.name;
+                                        queueList.innerHTML = queueList.innerHTML + '<tr><td>' + trackName + '</td><td>' + trackArtist + '</td><td>' + trackAlbum + '</td></tr>';
+                                    },
+                                    error: function(xhr, textStatus, errorThrown) {
+                                        console.log("Unable to get track information.");
+                                    }
+                                });
+                            } else if (wsmsg[0] === "id") {
+                                hostId = wsmsg[1];
+                                $.ajax({
+                                    url: 'http://djcollab.com/api/v1/host/' + hostId + '/' + partyId + '/',
+                                    type: 'POST',
+                                    success: function () {
+                                        console.log("Successfully paired party and host.")
+                                    },
+                                    error: function (xhr, textStatus, errorThrown) {
+                                        console.log("Could not pair host and party.");
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log("Could not create party.");
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        //Are you sure you want to leave?
+        function goodbye(e) {
+            if (!e) e = window.event;
+            e.cancelBubble = true;
+            e.returnValue = 'You will be disconnected from your party if you leave.';
+            if (e.stopPropagation) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        }
+
+        window.onbeforeunload = goodbye;
+    </script>
+}

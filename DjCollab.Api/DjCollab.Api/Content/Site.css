@@ -39,6 +39,23 @@ textarea {
     margin: 3px 15px 0 0;
 }
 
+form {
+    margin: 25px;
+}
+
+input {
+    margin-left: 10px;
+}
+
+button {
+    margin: 15px auto 15px auto;
+}
+
+.table-hover > tbody > tr:hover > td {
+    background-color: #222222;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 768px) {
     /* Logo Image */
     .logo {
