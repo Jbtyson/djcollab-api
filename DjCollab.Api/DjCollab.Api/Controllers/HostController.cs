@@ -26,10 +26,12 @@ namespace DjCollab.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Host()
+        public HttpResponseMessage Get()
         {
-            HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler());
-            return Ok();
+            var handler = new HostWebSocketHandler();
+            HttpContext.Current.AcceptWebSocketRequest(handler);
+            hostService.AddHost(handler);
+            return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }
     }
 }
