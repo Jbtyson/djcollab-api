@@ -35,8 +35,8 @@ namespace DjCollab.Api.Controllers
             {
                 var id = int.Parse(partyId);
                 HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(id));
-                var handler = hostService.GetHostByPartyId(id);
-                partyService.GetParty(id).HostId = handler.HostId;
+                //var handler = hostService.GetHostByPartyId(id);
+                //partyService.GetParty(id).HostId = handler.HostId;
             }
             catch (FormatException e)
             {
