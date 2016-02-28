@@ -21,6 +21,11 @@ namespace DjCollab.Party.Data
             return parties.Where(p => p.Id == partyId).ToList()[0];
         }
 
+        public static IList<Model.Party> GetAllParties()
+        {
+            return parties;
+        } 
+
         public static void Reset()
         {
             parties.Clear();

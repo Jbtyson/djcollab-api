@@ -31,6 +31,11 @@ namespace DjCollab.Party
             return FakePartyDb.GetParty(partyId);
         }
 
+        public IList<Model.Party> GetAllParties()
+        {
+            return FakePartyDb.GetAllParties();
+        } 
+
         public Model.Party CreateParty(int userId, Model.Party party)
         {
             party.HostId = userId;

@@ -22,6 +22,19 @@ namespace DjCollab.Api.Controllers
         }
 
         /// <summary>
+        /// Get a list of all active parties.
+        /// </summary>
+        /// <returns>List of all active parties.</returns>
+        [HttpGet]
+        [Route("")]
+        [ResponseType(typeof (IList<Party.Model.Party>))]
+        public IHttpActionResult GetParties()
+        {
+            var parties = partyService.GetAllParties();
+            return Ok(parties);
+        }
+
+        /// <summary>
         /// Adds a song to a party's playlist.
         /// </summary>
         /// <param name="partyId">Id of the party to add the song to.</param>
