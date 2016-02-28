@@ -24,6 +24,7 @@ namespace DjCollab.Api.Controllers
         /// <summary>
         /// Establishes a websocket connection between a host and the server.
         /// </summary>
+        /// <param name="partyId">Id of the party to begin hosting.</param>
         /// <returns></returns>
         [HttpGet]
         [Route("{partyId}")]

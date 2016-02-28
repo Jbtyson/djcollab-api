@@ -29,7 +29,7 @@ namespace DjCollab.Host
             var id = idCount++;
             hostWebSocketHandler.HostId = id;
             hostWebSocketHandlers[id] = hostWebSocketHandler;
-            hostWebSocketHandler.Send($"add:{id}");
+            hostWebSocketHandler.Send($"id:{id}");
         }
 
         public void OnDisconnect(int id)
