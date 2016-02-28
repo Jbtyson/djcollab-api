@@ -243,6 +243,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostController.cs" />
     <Compile Include="Controllers\HostPartyController.cs" />
+    <Compile Include="Controllers\JoinPartyController.cs" />
     <Compile Include="Controllers\PartyController.cs" />
     <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -323,6 +324,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HostParty\Index.cshtml" />
     <Content Include="Views\HostParty\Callback.cshtml" />
+    <Content Include="Views\JoinParty\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

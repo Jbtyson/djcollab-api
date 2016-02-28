@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new {area = ""}, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new {area = ""}, null)</li>
                     <li><a id="btn-login" href="#">Host</a></li>
-                    <li>@Html.ActionLink("Join", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Join", "Index", "JoinParty", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
@@ -40,63 +40,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script type='text/javascript'>
-        window.onload=function(){
-        (function() {
-            function login(callback) {
-                var CLIENT_ID = '94978b3f97cc4e1c8e73e6a264b8a4b5';
-                var REDIRECT_URI = 'http://djcollab.com/hostparty/callback/';
-                function getLoginURL(scopes) {
-                    return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID +
-                    '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
-                    '&scope=' + encodeURIComponent(scopes.join(' ')) +
-                    '&response_type=token';
-                }
-
-                var url = getLoginURL([
-                    'user-read-email'
-                ]);
-
-                var width = 450,
-                height = 730,
-                left = (screen.width / 2) - (width / 2),
-                top = (screen.height / 2) - (height / 2);
-
-                window.addEventListener("message", function (event) {
-                var hash = JSON.parse(event.data);
-                if (hash.type == 'access_token') {
-                    callback(hash.access_token);
-                }
-            }, false);
-
-                var w = window.open(url,
-                    'Spotify',
-                    'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
-                );
-            }
-
-    function getUserData(accessToken) {
-        return $.ajax({
-            url: 'https://api.spotify.com/v1/me',
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            }
-        });
-    }
-
-    var loginButton = document.getElementById('btn-login');
-
-    loginButton.addEventListener('click', function () {
-        login(function (accessToken) {
-            getUserData(accessToken)
-                .then(function (response) {
-                    //loginButton.style.display = 'none';
-                });
-        });
-    });
-   
-})();
-}
-</script>
 </body>
 </html>

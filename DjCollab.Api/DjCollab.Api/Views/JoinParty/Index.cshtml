@@ -1,0 +1,99 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <h2>Join a Party</h2>
+        <p id="searching">Searching for parties to join...</p>
+        <ul id="parties" style="display: none;">
+        </ul>
+        </div>
+    <span style="display: none;" id="joiningNotification">Joining Party...</span>
+        <div class="table-responsive" id="queue" style="display: none;">
+            <h2>Party Queue</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                    </tr>
+                </thead>
+                <tbody id="queueList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @section scripts {
+        <script>
+            //Join a Party
+            $(document).ready(function() {
+                var partyButton = document.getElementById('btn-party'),
+                    searching = document.getElementById('searching'),
+                    parties = document.getElementById('parties'),
+                    creatingNotification = document.getElementById('creatingNotification'),
+                    queue = document.getElementById('queue'),
+                    queueList = document.getElementById('queueList');
+
+                $.ajax({
+                    url: 'http://djcollab.com/api/v1/party/',
+                    type: 'GET',
+                    success: function(result) {
+                        console.log("Retrieved active parties.");
+                        searching.innerHTML = "Select a party to join:";
+                        parties.style.display = "block";
+                        for (var i = 0; i < result.length; i++) {
+                            parties.innerHTML = parties.innerHTML + '<li><a href="#" class="partyList" id="party_' + i + '">' + result[i].Name + '</a></li>';
+                        }
+                        var indParties = document.getElementsByClassName("partyList");
+                        for (var j = 0; j < indParties.length; j++) {
+                            indParties[j].onclick = function(e) {
+                                searching.style.display = "none";
+                                parties.style.display = "none";
+                                joiningNotification.style.display = "block";
+                                var clickID = this.id.split("_");
+                                var partyId = result[clickID[1]].Id;
+                                var hostId = result[clickID[1]].HostId;
+                                var partyName = result[clickID[1]].Name;
+                                var partySongs = result[clickID[1]].SongList;
+                                if (partySongs.length > 0) {
+                                    queue.style.display = "block";
+                                    for (var k = 0; k < partySongs.length; k++) {
+                                        $.ajax({
+                                            url: 'https://api.spotify.com/v1/tracks/' + partySongs[k],
+                                            type: 'GET',
+                                            success: function(nresult) {
+                                                console.log("Recieved track information.");
+                                                var trackName = nresult.name;
+                                                var trackArtist = nresult.artists[0].name;
+                                                var trackAlbum = nresult.album.name;
+                                                queueList.innerHTML = queueList.innerHTML + '<tr><td>' + trackName + '</td><td>' + trackArtist + '</td><td>' + trackAlbum + '</td></tr>';
+                                            },
+                                            error: function(xhr, textStatus, errorThrown) {
+                                                console.log("Unable to get track information.");
+                                            }
+                                        });
+                                    }
+                                }
+                                joiningNotification.innerHTML = 'Successfully joined the party "' + partyName + '"!';
+                            }
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log("Could not find any parties.");
+                    }
+                });
+            });
+        </script>
+        <script>
+            //Are you sure you want to leave?
+            function goodbye(e) {
+                if (!e) e = window.event;
+                e.cancelBubble = true;
+                e.returnValue = 'You will be disconnected from the party if you leave.';
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            }
+
+            window.onbeforeunload = goodbye;
+        </script>
+    }
