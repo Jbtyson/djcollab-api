@@ -8,5 +8,6 @@ namespace DjCollab.Party
         IList<Model.Party> GetAllParties();
         Model.Party CreateParty(string name);
         Model.Party AddSongToParty(int partyId, string songId);
+        Model.Party DeleteSongFromParty(int partyId, string songId);
     }
 }

@@ -29,6 +29,11 @@ namespace DjCollab.Party
             return party;
         }
 
+        public Model.Party DeleteSongFromParty(int partyId, string songId)
+        {
+            return FakePartyDb.DeleteSongFromParty(partyId, songId);
+        }
+
         public Model.Party GetParty(int partyId)
         {
             return FakePartyDb.GetParty(partyId);

@@ -66,6 +66,21 @@ namespace DjCollab.Api.Controllers
         }
 
         /// <summary>
+        /// Removes a song from the playlist of a given party.
+        /// </summary>
+        /// <param name="partyId">Id of the party to remove the song from.</param>
+        /// <param name="songId">Id of the song to remove from the party.</param>
+        /// <returns>Updated party state.</returns>
+        [HttpDelete]
+        [Route("{partyId}/{songId}")]
+        [ResponseType(typeof (Party.Model.Party))]
+        public IHttpActionResult DeleteSongFromParty(string partyId, string songId)
+        {
+            var party = partyService.DeleteSongFromParty(int.Parse(partyId), songId);
+            return Ok(party);
+        }
+
+        /// <summary>
         /// Creates a party.
         /// </summary>
         /// <param name="name">Name of the party.</param>

@@ -556,6 +556,14 @@
             <param name="songId">Id of the song the user is trying to add.</param>
             <returns>Updated party object.</returns>
         </member>
+        <member name="M:DjCollab.Api.Controllers.PartyController.DeleteSongFromParty(System.String,System.String)">
+            <summary>
+            Removes a song from the playlist of a given party.
+            </summary>
+            <param name="partyId">Id of the party to remove the song from.</param>
+            <param name="songId">Id of the song to remove from the party.</param>
+            <returns>Updated party state.</returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.PartyController.CreateParty(System.String)">
             <summary>
             Creates a party.

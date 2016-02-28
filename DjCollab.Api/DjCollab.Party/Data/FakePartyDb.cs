@@ -40,5 +40,18 @@ namespace DjCollab.Party.Data
             parties.Clear();
             nextId = 0;
         }
+
+        public static Model.Party DeleteSongFromParty(int partyId, string songId)
+        {
+            foreach (var p in parties)
+            {
+                if (p.Id == partyId)
+                {
+                    ((List<string>)p.SongList).RemoveAll(s => s.Equals(songId));
+                    return p;
+                }
+            }
+            throw new KeyNotFoundException();
+        }
     }
 }
