@@ -1,14 +1,28 @@
 ﻿using System.Collections.Generic;
+using DjCollab.Host;
 using DjCollab.Party.Data;
 
 namespace DjCollab.Party
 {
     public class PartyService : IPartyService
     {
-        public Model.Party AddSongToParty(int partyId, int songId)
+        private readonly IHostService hostService;
+
+        public PartyService()
+        {
+            hostService = new HostService();
+        }
+
+        public PartyService(IHostService hostService)
+        {
+            this.hostService = hostService;
+        }
+
+        public Model.Party AddSongToParty(int senderId, int partyId, int songId)
         {
             var party = FakePartyDb.GetParty(partyId);
             party.SongList.Add(songId);
+            hostService.SendMessage(party.HostId, senderId, $"add:{songId}");
             return party;
         }
 

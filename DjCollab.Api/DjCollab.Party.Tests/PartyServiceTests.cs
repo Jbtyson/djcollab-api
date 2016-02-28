@@ -41,9 +41,9 @@ namespace DjCollab.Party.Tests
             var partyService = new PartyService();
             var testParty = TestParty();
             var createdParty = partyService.CreateParty(420, testParty);
-            partyService.AddSongToParty(createdParty.Id, 40);
-            partyService.AddSongToParty(createdParty.Id, 41);
-            partyService.AddSongToParty(createdParty.Id, 42);
+            partyService.AddSongToParty(69, createdParty.Id, 40);
+            partyService.AddSongToParty(69, createdParty.Id, 41);
+            partyService.AddSongToParty(69, createdParty.Id, 42);
 
             var party = partyService.GetParty(createdParty.Id);
             Assert.AreEqual(40, party.SongList[0]);

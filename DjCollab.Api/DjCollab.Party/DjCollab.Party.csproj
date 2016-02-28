@@ -46,7 +46,12 @@
     <Compile Include="PartyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DjCollab.Host\DjCollab.Host.csproj">
+      <Project>{be32b07a-9d78-49bf-992d-fd8d05276caa}</Project>
+      <Name>DjCollab.Host</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

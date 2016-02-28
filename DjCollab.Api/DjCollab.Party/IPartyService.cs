@@ -6,6 +6,6 @@ namespace DjCollab.Party
     {
         Model.Party GetParty(int partyId);
         Model.Party CreateParty(int userId, Model.Party party);
-        Model.Party AddSongToParty(int partyId, int songId);
+        Model.Party AddSongToParty(int senderId, int partyId, int songId);
     }
 }
