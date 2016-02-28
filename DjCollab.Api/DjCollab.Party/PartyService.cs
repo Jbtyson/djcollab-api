@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using DjCollab.Host;
 using DjCollab.Party.Data;
 
@@ -22,13 +24,7 @@ namespace DjCollab.Party
         {
             var party = FakePartyDb.GetParty(partyId);
             party.SongList.Add(songId);
-            try
-            {
-                hostService.SendMessage(party.HostId, $"add:{songId}");
-            }
-            catch (KeyNotFoundException e)
-            {
-            }
+            hostService.SendMessage(party.HostId, $"add:{songId}");
 
             return party;
         }

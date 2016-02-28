@@ -481,6 +481,12 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:DjCollab.Api.Controllers.ErrorController.Get">
+            <summary>
+            Error log.
+            </summary>
+            <returns>List of errors since last server restart.</returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.HostController.Host">
             <summary>
             Establishes a websocket connection between a host and the server.
