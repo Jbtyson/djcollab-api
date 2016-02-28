@@ -20,12 +20,17 @@ namespace DjCollab.Api.Controllers
             hostService = new HostService();
         }
 
+        /// <summary>
+        /// Establishes a websocket connection between a host and the server.
+        /// </summary>
+        /// <param name="userId">Id of the user attempting to establish the connection.</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{userId}")]
-        public IHttpActionResult Get(string userId)
+        public IHttpActionResult Host(string userId)
         {
             HttpContext.Current.AcceptWebSocketRequest(new HostWebSocketHandler(int.Parse(userId)));
-            return Ok(HttpStatusCode.SwitchingProtocols);
+            return Ok();
         }
     }
 }

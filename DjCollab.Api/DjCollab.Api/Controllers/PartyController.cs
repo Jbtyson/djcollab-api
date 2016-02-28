@@ -21,6 +21,13 @@ namespace DjCollab.Api.Controllers
             this.partyService = partyService;
         }
 
+        /// <summary>
+        /// Adds a song to a party's playlist.
+        /// </summary>
+        /// <param name="partyId">Id of the party to add the song to.</param>
+        /// <param name="senderId">Id of the user attempting to add the song.</param>
+        /// <param name="songId">Id of the song the user is trying to add.</param>
+        /// <returns>Updated party object.</returns>
         [HttpPut]
         [Route("{partyId}/{songId}")]
         [ResponseType(typeof (Party.Model.Party))]
@@ -31,6 +38,12 @@ namespace DjCollab.Api.Controllers
             return Ok(party);
         }
 
+        /// <summary>
+        /// Creates a party.
+        /// </summary>
+        /// <param name="userId">User attempting to host a party.</param>
+        /// <param name="party">Party creation information.</param>
+        /// <returns>Created party object.</returns>
         [HttpPut]
         [Route("create/{userId}")]
         [ResponseType(typeof (Party.Model.Party))]
