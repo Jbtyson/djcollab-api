@@ -6,7 +6,7 @@ using DjCollab.Party;
 
 namespace DjCollab.Api.Controllers
 {
-    [RoutePrefix("v1/party")]
+    [RoutePrefix("api/v1/party")]
     public class PartyController : ApiController
     {
         private IPartyService partyService;

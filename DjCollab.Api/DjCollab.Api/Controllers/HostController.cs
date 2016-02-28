@@ -10,7 +10,7 @@ using DjCollab.Host;
 
 namespace DjCollab.Api.Controllers
 {
-    [RoutePrefix("v1/host")]
+    [RoutePrefix("api/v1/host")]
     public class HostController : ApiController
     {
         private readonly IHostService hostService;
