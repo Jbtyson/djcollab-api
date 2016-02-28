@@ -22,9 +22,9 @@ namespace DjCollab.Host
             }
         }
 
-        public IList<int> GetHosts()
+        public IList<HostWebSocketHandler> GetHosts()
         {
-            return hostWebSocketHandlers.Keys.ToList();
+            return hostWebSocketHandlers.Values.ToList();
         }
 
         public void CreateHostWebSocketHandler(int userId)

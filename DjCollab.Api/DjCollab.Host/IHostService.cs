@@ -4,7 +4,7 @@ namespace DjCollab.Host
 {
     public interface IHostService
     {
-        IList<int> GetHosts();
+        IList<HostWebSocketHandler> GetHosts();
         HostWebSocketHandler GetHostByPartyId(int partyId); 
         void CreateHostWebSocketHandler(int userId);
         void SendMessage(int hostId, string message);
