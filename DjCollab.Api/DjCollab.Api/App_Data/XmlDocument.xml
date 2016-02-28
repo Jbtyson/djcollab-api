@@ -487,6 +487,23 @@
             </summary>
             <returns>List of errors since last server restart.</returns>
         </member>
+        <member name="T:DjCollab.Api.Controllers.HomeController">
+            <summary>
+            View Controller for Home
+            </summary>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.HomeController.Index">
+            <summary>
+            Returns view for the index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DjCollab.Api.Controllers.HomeController.Callback">
+            <summary>
+            Returns view for callback
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:DjCollab.Api.Controllers.HostController.Host">
             <summary>
             Establishes a websocket connection between a host and the server.
