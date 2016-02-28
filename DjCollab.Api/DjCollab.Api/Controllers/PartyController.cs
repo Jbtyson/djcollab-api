@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DjCollab.Party;
+using Microsoft.Owin.Security.Provider;
 
 namespace DjCollab.Api.Controllers
 {
@@ -27,7 +29,7 @@ namespace DjCollab.Api.Controllers
         /// <returns>List of all active parties.</returns>
         [HttpGet]
         [Route("")]
-        [ResponseType(typeof (IList<Party.Model.Party>))]
+        [ResponseType(typeof(IList<Party.Model.Party>))]
         public IHttpActionResult GetParties()
         {
             var parties = partyService.GetAllParties();
@@ -42,12 +44,19 @@ namespace DjCollab.Api.Controllers
         /// <returns>Updated party object.</returns>
         [HttpPut]
         [Route("{partyId}/{songId}")]
-        [ResponseType(typeof (Party.Model.Party))]
+        [ResponseType(typeof(Party.Model.Party))]
         public IHttpActionResult AddSongToParty(string partyId, string songId)
         {
-            var party = partyService.AddSongToParty(int.Parse(partyId), songId);
+            try
+            {
+                var party = partyService.AddSongToParty(int.Parse(partyId), songId);
 
-            return Ok(party);
+                return Ok(party);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
         }
 
         /// <summary>
@@ -57,7 +66,7 @@ namespace DjCollab.Api.Controllers
         /// <returns>Created party object.</returns>
         [HttpPut]
         [Route("create/{name}")]
-        [ResponseType(typeof (Party.Model.Party))]
+        [ResponseType(typeof(Party.Model.Party))]
         public IHttpActionResult CreateParty(string name)
         {
             var createdParty = partyService.CreateParty(name);
