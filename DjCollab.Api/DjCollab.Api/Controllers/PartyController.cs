@@ -33,9 +33,9 @@ namespace DjCollab.Api.Controllers
         [HttpGet]
         [Route("{partyId}")]
         [ResponseType(typeof (Party.Model.Party))]
-        public void GetParty(string partyId)
+        public IHttpActionResult GetParty(string partyId)
         {
-            partyService.GetParty(int.Parse(partyId));
+            return Ok(partyService.GetParty(int.Parse(partyId)));
         }
 
         /// <summary>
